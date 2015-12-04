@@ -258,6 +258,9 @@
         toView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
     }
     CGRect contentRect = [self.contentView convertRect:self.contentView.bounds toView:toView];
+    CGPoint offset = self.contentOffset;
+    contentRect.origin.x += offset.x;
+    contentRect.origin.y += offset.y;
     
     float space = screen.size.height - (contentRect.origin.y + contentRect.size.height);
     
